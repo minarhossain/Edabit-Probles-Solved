@@ -629,3 +629,279 @@ function inchesToFeet(inches) {
 
 console.log(inchesToFeet(12));
 console.log(inchesToFeet(36));
+
+// I'd like a New Shade of Blue, Please I have a bucket containing an amount of navy blue paint and I'd like to paint as many walls as possible. Create a function that returns the number of complete walls that I can paint, before I need to head to the shops to buy more.(n is the number of square meters I can paint.w and h are the widths and heights of a single wall in meters.)
+
+function howManyWalls(n, w, h) {
+  return Math.floor(n / (w * h));
+}
+
+console.log(howManyWalls(100, 4, 5));
+console.log(howManyWalls(10, 15, 12));
+console.log(howManyWalls(41, 3, 6));
+
+// To the power of : Create a function that takes a base number and an exponent number and returns the calculation.
+
+// function calculatePower(base, exponent) {
+//   let result = 1;
+
+//   for (let i = 1; i <= exponent; i++) {
+//       result *= base;
+//   }
+
+//   return result;
+// }
+
+function calculatePower(base, exponent) {
+  return Math.pow(base, exponent);
+}
+
+console.log(calculatePower(3, 3));
+console.log(calculatePower(5, 5));
+console.log(calculatePower(10, 10));
+
+// Return the last element of an array: Create a function that accepts an array and returns the last item in the array.
+
+function lastElement(array) {
+  return array[array.length - 1];
+}
+// const lastElement = array.slice(-1);
+// const lastElement = array.pop();
+console.log(lastElement([1, 2, 3, 4, 5]));
+console.log(lastElement(["a", "c", "d", "e", "f", "x"]));
+
+// String and Number Conversions:  You need to create two functions to substitute toString() and parseInt(); A function called intToString() that converts integers into strings and a function called stringToInt() that converts strings into integers.
+function intToString(num) {
+  return num.toString();
+}
+
+console.log(intToString(10));
+console.log(typeof intToString(10));
+
+function stringToInt(str) {
+  // return Number(str);
+  return parseInt(str);
+}
+
+console.log(stringToInt("12"));
+
+// On/Off Switch : Create a function that returns how many possible arrangements can come from a certain number of switches (on / off). In other words, for a given number of switches, how many different patterns of on and off can we have?
+
+function posCom(num) {
+  return Math.pow(2, num);
+}
+
+console.log(posCom(1));
+console.log(posCom(3));
+console.log(posCom(10));
+
+// Among Us Imposter Formula Create a function that calculates the chance of being an imposter. The formula for the chances of being an imposter is 100 × (i / p) where i is the imposter count and p is the player count. Make sure to round the value to the nearest integer and return the value as a percentage.
+function imposterFormula(i, p) {
+  // calculate the formula
+  const percentage = (i / p) * 100;
+  // round the value to the nearest integer
+  const roundedPercentage = Math.round(percentage);
+  // return the value as a percentage
+  return `${roundedPercentage}%`;
+}
+console.log(imposterFormula(1, 10));
+console.log(imposterFormula(2, 5));
+console.log(imposterFormula(1, 8));
+
+// Find out the leap year: A leap year happens every four years, so it's a year that is perfectly divisible by four. However, if the year is a multiple of 100 (1800, 1900, etc), the year must be divisible by 400. Write a function that determines if the year is a leap year or not.
+
+function leapYear(year) {
+  if (year % 4 === 0) {
+    if (year % 100 === 0) {
+      if (year % 400 === 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  } else {
+    return false;
+  }
+}
+
+// function leapYear(year) {
+//   return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+// }
+
+// Word Without First Character: Create a function taht takes a word and returns the world without including the first character.
+
+function newWord(str) {
+  return str.slice(1);
+}
+console.log(newWord("apple"));
+console.log(newWord("cherry"));
+console.log(newWord("plum"));
+
+// Delete first character of a strng in JavaScript
+// slice()
+// substr()
+// replace()
+// substring()
+// String.prototype.split()
+
+// string.slice(startingIndex, endingIndex);
+// string.substr(startIndex, EndIndex);
+// string.replace(searchValue, newValue);
+// string.substring(index);
+
+function newWordAgain(str) {
+  // str.split() return an array ['string']
+  // str.split('') return ['s','t','r','i','n','g']
+  //str.split("").slice(1) return ['t','r','i','n','g']
+  // str.split("").slice(1).join() return t,r,i,n,g
+
+  // str.split("").slice(1).join(""); return tring
+
+  return str.split("").slice(1).join("");
+}
+
+console.log(newWordAgain("Hello"));
+
+// Flip the boolean: Due to a programming concept known as truthiness, certain values can be evaluated to (i.e. take the place of) booleans. For example, 1 (or any number other than 0) is often equivalent to true, and 0 is often equivalent to false.
+
+function flipBoolean(argument) {
+  return argument ? 0 : 1;
+}
+
+console.log(flipBoolean(true));
+console.log(flipBoolean(false));
+console.log(flipBoolean(1));
+console.log(flipBoolean(0));
+
+//Name Greeting! : Create a function that takes a name and returns a greeting in the form of a string. Don't use a normal function, use an arrow function.
+
+const helloName = (name) => "Hello " + name + "!";
+console.log(helloName("Gerald"));
+console.log(helloName("Tiffany"));
+console.log(helloName("Ed"));
+
+// Is the number even or odd: Create a function that takes a number as an argument and returns "even" for even numbers and "odd" for odd numbers.
+
+function isEvenOrOdd(number) {
+  if (number % 2 === 0) {
+    return "even";
+  } else {
+    return "odd";
+  }
+}
+
+console.log(isEvenOrOdd(3));
+console.log(isEvenOrOdd(146));
+console.log(isEvenOrOdd(64));
+console.log(isEvenOrOdd(19));
+
+// Fix the Error: Check Whether a Given Number is Odd
+function isOdd(num) {
+  return num % 2 !== 0;
+}
+
+console.log(isOdd(-5));
+console.log(isOdd(25));
+console.log(isOdd(0));
+console.log(isOdd(13));
+
+// Stack the boxes: Here's an image of four models. Some of the cubes are hidden behind other cubes. Model one consists of one cube. Model two consists of four cubes, and so on... Write a function that takes a number n and returns the number of stacked boxes in a model n levels high, visible and invisible.
+
+function stackBoxes(n) {
+  return n * n;
+}
+
+// Examples:
+console.log(stackBoxes(1)); // ➞ 1
+console.log(stackBoxes(2)); // ➞ 4
+console.log(stackBoxes(3)); // ➞ 9
+console.log(stackBoxes(0)); // ➞ 0
+console.log(stackBoxes(4)); // ➞ 16
+
+// Tringle and Parallelogram Area Finder: Write a function that accepts base (decimal), height (decimal) and shape ("triangle", "parallelogram") as input and calculates the area of that shape. Area of a triangle is 0.5 * b * h,(Area of a parallelogram is b * h,Assume triangle and parallelogram are the only inputs for shape.)
+
+function areaShape(b, h, shape) {
+  if (shape === "triangle") {
+    return 0.5 * b * h;
+  } else if (shape === "parallelogram") {
+    return b * h;
+  } else {
+    return "no shape";
+  }
+}
+
+console.log(areaShape(2, 3, "triangle"));
+console.log(areaShape(8, 6, "parallelogram"));
+console.log(areaShape(2.9, 1.3, "parallelogram"));
+
+// // Convert an Array to String: Create a function that takes an array of numbers or letter and return an string
+
+function arrayToString(arr) {
+  return arr.join("");
+}
+console.log(arrayToString(["foo", "bar"]));
+console.log(arrayToString(["a", "b", "d", "u", "l"]));
+
+// Concatenating Two Integer Arrays: Create a function to concatenate two integer array
+
+function concat(arrayOne, arrayTwo) {
+  // return arrayOne.concat(arrayTwo); // ok
+  return [...arrayOne, ...arrayTwo];
+}
+console.log(concat([1, 2, 3, 4, 5, 6], [7, 8, 9, 10]));
+console.log(concat([7, 8], [10, 9, 1, 1, 2]));
+console.log(concat([4, 5, 1], [3, 3, 3, 3, 3]));
+
+// Find the Index: Create a function and takes an array and a string as arguments and return the index of the string
+
+function findIndex(array, argument) {
+  return array.indexOf(argument);
+}
+
+console.log(findIndex(["hi", "edabit", "fgh", "abc"], "fgh"));
+
+console.log(findIndex(["Red", "blue", "Blue", "Green"], "blue"));
+
+console.log(findIndex(["a", "g", "y", "d"], "d"));
+console.log(findIndex(["Pineapple", "Orange", "Grape", "Apple"], "Pineapple"));
+
+// Array Indexing: Given an index and an array, return the value of the array with the given index.
+
+function valueAt(arr, value) {
+  value = Math.floor(value);
+  return arr[value];
+}
+
+console.log(valueAt([1, 2, 3, 4, 5, 6, 7], 10 / 2));
+console.log(valueAt([1, 2, 3, 4, 5, 6], 8.0 / 2));
+console.log(valueAt([1, 2, 3, 4], 6.535355314 / 2));
+
+// find the index (part 1): Create a function that find the index of a given item
+
+function search(arr, element) {
+  return arr.indexOf(element);
+}
+
+console.log(search([1, 5, 3], 5));
+console.log(search([9, 8, 3], 3));
+console.log(search([1, 2, 3], 4));
+
+//Buggy Code (Part 3): Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+function sumArray(array) {
+  let sum = 0;
+  // for (var i = 0; i < array.length; i++) {
+  //     sum = sum + array[i];
+  // }
+  // array.forEach((num) => (sum += num));
+
+  sum = array.reduce((a, c) => {
+    return a + c;
+  }, 0);
+  return sum;
+}
+
+console.log(sumArray([1, 2, 3, 4, 5]));
+console.log(sumArray([-1, 0, 1]));
+console.log(sumArray([0, 4, 8, 12]));
