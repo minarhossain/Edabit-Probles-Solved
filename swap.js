@@ -906,4 +906,75 @@ console.log(sumArray([1, 2, 3, 4, 5]));
 console.log(sumArray([-1, 0, 1]));
 console.log(sumArray([0, 4, 8, 12]));
 
-// be the first
+//Find the index part2: Create a function that searches for the index of a given item in an array. If the item is present, it should return the index, otherwise, it should return -1.
+
+function search(array, element) {
+  return array.indexOf(element);
+}
+
+console.log(search([1, 2, 3, 4], 3));
+console.log(search([2, 4, 6, 8, 10], 8));
+console.log(search([1, 3, 5, 7, 9], 11));
+
+//Word Numbers! Create a function that returns a number, based on the string provided. Here is a list of all digits:
+
+function world(arg) {
+  switch (arg.toLowerCase()) {
+    case "one":
+      return 1;
+      break;
+    case "two":
+      return 2;
+      break;
+    case "three":
+      return 3;
+      break;
+    case "four":
+      return 4;
+      break;
+    case "five":
+      return 5;
+      break;
+    case "six":
+      return 6;
+      break;
+    case "seven":
+      return 7;
+      break;
+    case "eight":
+      return 8;
+      break;
+    case "nine":
+      return 9;
+      break;
+    case "zero":
+      return 0;
+      break;
+    default:
+      return "out of range";
+      break;
+  }
+}
+
+console.log(world("one"));
+console.log(world("two"));
+console.log(world("three"));
+console.log(world("four"));
+console.log(world("five"));
+console.log(world("six"));
+console.log(world("seven"));
+console.log(world("eight"));
+console.log(world("nine"));
+console.log(world("zero"));
+console.log(world("minar"));
+
+// Check if an array contains a  Given number: Write a function to check if an array contains a particular number
+
+function check(arr, ele) {
+  return arr.includes(ele);
+}
+
+console.log(check([1, 2, 3, 4, 5], 3));
+console.log(check([1, 1, 2, 1, 1], 3));
+console.log(check([5, 5, 5, 6], 5));
+console.log(check([], 5));
