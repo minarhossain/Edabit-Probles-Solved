@@ -978,3 +978,100 @@ console.log(check([1, 2, 3, 4, 5], 3));
 console.log(check([1, 1, 2, 1, 1], 3));
 console.log(check([5, 5, 5, 6], 5));
 console.log(check([], 5));
+
+// minimal 2
+function oddOrEven(n) {
+  return n % 2 ? "odd" : "even";
+  // return n % 2 === 0 ? "even" : "odd";
+}
+console.log(oddOrEven(20));
+console.log(oddOrEven(21));
+
+// Numbers of stickers:Given a Rubik's Cube with a side length of n, return the number of individual stickers that are needed to cover the whole cube. formula 6a^2
+
+//(The Rubik's cube of side length 1 has 6 stickers.The Rubik's cube of side length 2 has 24 stickers.The Rubik's cube of side length 3 has 54 stickers.)
+
+function howManyStickers(n) {
+  return 6 * n * n;
+}
+
+console.log(howManyStickers(1));
+console.log(howManyStickers(2));
+console.log(howManyStickers(3));
+
+/**
+ 
+Burglary Series (19): Prevent Changes
+The police send you an electronic statement for you to sign. As you begin to sign, an error pops up. Apparently, they sent you a protected document.
+
+This challenge is a bit different as the function you are given already contains some code that you should not change or remove. Also, don't do a return statement, it is already included. Your task is, given an object, prevent changes to that object.
+
+Examples
+const obj = { noChanges: true }
+
+preventChanges(obj) {
+  // Write your code here, don't use a return statement
+
+  obj.noChanges = false;
+  obj.signature = "whatever"
+  return obj;
+
+}  ➞ { noChanges: true }
+Notes
+If you have suggestions on how to present or further test this challenge please leave me a comment. Thanks!
+This series is part of a collection that focuses on objects. If you are interested in following the breathtaking narrative skills of yours truly or just do some object focused challenges (the challenges are ordered in ascending difficulty order), you can more easily do that here.
+
+ */
+
+const obj = { noChange: true };
+
+function preventChanges(obj) {
+  Object.freeze(obj);
+  obj.noChange = false;
+  obj.signature = "whatever";
+  return obj;
+}
+
+console.log(preventChanges(obj));
+
+// Four passenger and a Driver: A typical car can hold four passengers and one driver, allowing five people to travel around. Given n number of people, return how many cars are needed to seat everyone comfortably.
+
+function carsNeeded(n) {
+  return Math.ceil(n / 5);
+}
+
+console.log(carsNeeded(5));
+console.log(carsNeeded(11));
+console.log(carsNeeded(0));
+console.log(carsNeeded(6));
+
+// check string for spaces: create a function that returns true if a string contains any spaces
+
+function hasSpaces(str) {
+  return str.includes(" ");
+}
+
+console.log(hasSpaces("hello"));
+console.log(hasSpaces("hello world!"));
+console.log(hasSpaces(" "));
+console.log(hasSpaces(""));
+console.log(hasSpaces(",.ljjjd"));
+
+// Kinetic energy:
+function kineticEnergy(m, v) {
+  return 0.5 * m * v * v;
+}
+
+console.log(kineticEnergy(60, 3));
+console.log(kineticEnergy(45, 10));
+console.log(kineticEnergy(63.5, 7.35));
+console.log(kineticEnergy(65, 13));
+//Volueme of a Box : Create a function that takes an object argument sizes (contains width, length, height, keys) and returns the volume of the box.
+
+function volumeOfBox(sizes) {
+  return sizes.width * sizes.length * sizes.height;
+}
+
+console.log(volumeOfBox({ width: 2, length: 5, height: 1 }));
+console.log(volumeOfBox({ width: 4, length: 2, height: 2 }));
+console.log(volumeOfBox({ width: 2, length: 3, height: 5 }));
