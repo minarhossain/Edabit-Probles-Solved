@@ -980,12 +980,12 @@ console.log(check([5, 5, 5, 6], 5));
 console.log(check([], 5));
 
 // minimal 2
-function oddOrEven(n) {
-  return n % 2 ? "odd" : "even";
-  // return n % 2 === 0 ? "even" : "odd";
+function oddOrEven2(n) {
+  // return n % 2 ? "odd" : "even";
+  return n % 2 === 0 ? "even" : "odd";
 }
-console.log(oddOrEven(20));
-console.log(oddOrEven(21));
+console.log(oddOrEven2(20));
+console.log(oddOrEven2(21));
 
 // Numbers of stickers:Given a Rubik's Cube with a side length of n, return the number of individual stickers that are needed to cover the whole cube. formula 6a^2
 
@@ -1075,3 +1075,217 @@ function volumeOfBox(sizes) {
 console.log(volumeOfBox({ width: 2, length: 5, height: 1 }));
 console.log(volumeOfBox({ width: 4, length: 2, height: 2 }));
 console.log(volumeOfBox({ width: 2, length: 3, height: 5 }));
+
+// Recreating the abs() function : the Math.abs() function returns the absolute value of a number. This means that it returns a number's positive value. You can think of its distance away from zero. Create a function that recreates this functionality.
+
+function absolute(num) {
+  return Math.abs(num);
+}
+
+console.log(absolute(-5));
+console.log(absolute(-5.3589));
+
+// Is the last charcter an "n": Create a function that takes a string ( a random name). If the last character of the name is "n " returns true.Otherwise it returns false
+function lastChar(str) {
+  // return str.endsWith("n");
+  // return str[str.length - 1] === "n";
+
+  // return str.charAt(str.length - 1) === "n";
+  // return str.slice(-1) === "n";
+
+  // return str.substr(-1) === "n";
+  // return str.at(-1) === "n";
+
+  // return str.match(/.$/g); // return an array
+
+  return str.split("").pop() === "n";
+}
+
+console.log(lastChar("John"));
+console.log(lastChar("Joal"));
+
+// Less that greater than: Create a function that takes two numbers and an array arr and returns an array containing all the numbers in arr greater than number1 and less than number2.
+
+function arrBetween(num1, num2, arr) {
+  return arr.filter((num) => num > num1 && num < num2);
+}
+
+console.log(
+  arrBetween(10, 15, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
+);
+console.log(arrBetween(3, 8, [1, 5, 95, 0, 4, 7]));
+console.log(arrBetween(1, 10, [1, 10, 25, 8, 11, 6]));
+console.log(arrBetween(7, 32, [1, 2, 3, 78]));
+
+// 50-30-20 Strategy: The 50-30-20 strategy is a simple way to budget, which involves spending 50% of after-tax income on needs, 30% after tax income on wants, and 20% after-tax income on savings or paying off debt. Given the after-tax income as ati, what you are supposed to do is to make a function that will return an object that shows how much a person needs to spend on needs, wants, and savings.
+
+function fiftyThirtyTwenty(ati) {
+  return {
+    Needs: ati * 0.5,
+    Wants: ati * 0.3,
+    Savings: ati * 0.2,
+  };
+}
+
+console.log(fiftyThirtyTwenty(10000));
+console.log(fiftyThirtyTwenty(50000));
+console.log(fiftyThirtyTwenty(13450));
+
+// count the arguments: create a function that returns the number of arguments it was called with
+
+function countArgs(...args) {
+  return args.length;
+}
+
+console.log(countArgs(1, 2, 3, 4, 5));
+console.log(countArgs(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+console.log(countArgs());
+console.log(countArgs("foo"));
+console.log(countArgs("bar", "baz"));
+console.log(countArgs(true, false));
+
+// Find the Bug : Returning the container The packaging system is running wild! The candy is lying loose all over in the warehouse, the cereal is missing, and bread is stuffed in a bottle. What is going on here? The candy should be in plastic and the bread should be in a bag. The packaging machine is running the getContainer() function to retrieve the container of a product. But something is not right...
+
+// function getContainer(product) {
+//   if (product === "candy") {
+//     return "plastic";
+//   } else if (product === "bread") {
+//     return "bag";
+//   } else {
+//     return "box";
+//   }
+// }
+
+function getContainer(product) {
+  switch (product) {
+    case "Bread":
+      return "bag";
+    case "Beer":
+      return "bottle";
+    case "Candy":
+      return "plastic";
+    case "Cheese ":
+      return null;
+    default:
+      return null;
+  }
+}
+console.log(getContainer("Bread")); // Expected output: "bag"
+console.log(getContainer("Beer")); // Expected output: "bottle"
+console.log(getContainer("Candy")); // Expected output: "plastic"
+console.log(getContainer("Cheese")); // Expected output: null
+console.log(getContainer("Milk"));
+
+// Many Operators!
+// Some basic arithmetic operators are +, -, *, /, and %. In this challenge you will be given three parameters, num1, num2, and an operator. Use the operator on number 1 and 2.
+function operator(num1, num2, operator) {
+  switch (operator) {
+    case "+":
+      return num1 + num2;
+    case "-":
+      return num1 - num2;
+    case "*":
+      return num1 * num2;
+    case "/":
+      return num1 / num2;
+    case "%":
+      return num1 % num2;
+    case "**":
+      return num1 ** num2;
+  }
+}
+
+// Similar Bread: Given two arrays, which represent two sandwiches, return whether both sandwiches use the same type of bread. The bread will always be found at the start and end of the array.
+function hasSameBread(sandwich1, sandwich2) {
+  return (
+    sandwich1[0] === sandwich2[0] &&
+    sandwich1[sandwich1.length - 1] === sandwich2[sandwich2.length - 1]
+  );
+}
+
+// Test cases
+console.log(
+  hasSameBread(
+    ["white bread", "lettuce", "white bread"],
+    ["white bread", "tomato", "white bread"]
+  )
+); // Expected output: true
+
+console.log(
+  hasSameBread(
+    ["brown bread", "chicken", "brown bread"],
+    ["white bread", "chicken", "white bread"]
+  )
+); // Expected output: false
+
+console.log(
+  hasSameBread(["toast", "cheese", "toast"], ["brown bread", "cheese", "toast"])
+); // Expected output: false
+
+// Nth Star Number:Create a function that takes a positive integer n and returns the nth "star number".A star number is a centered figurate number that represents a centered hexagram (six-pointed star), such as the one that Chinese checkers is played on.
+
+function starNumber(n) {
+  return 6 * n * (n - 1) + 1;
+}
+
+console.log(starNumber(1));
+console.log(starNumber(2));
+console.log(starNumber(3));
+console.log(starNumber(5));
+
+// Return the total number of parameters
+function numberOfArgs(...args) {
+  return args.length;
+}
+
+console.log(numberOfArgs(1, 2, 3, 4, 5));
+console.log(numberOfArgs("a", "b", "c", "d", "e", "f"));
+
+// luke i am your: Luke Skywalker has family and friends. Help him remind them who is who. Given a string with a name, return the relation of that person to Luke.
+
+function relationToLuke(relation) {
+  switch (relation) {
+    case "Darth Vader":
+      return "Luke, I am your father.";
+    case "Leia":
+      return "Luke, I am your sister.";
+    case "Han":
+      return "Luke, I am your brother in law.";
+    case "daughter":
+      return "Luke, I am your daughter.";
+    default:
+      return "unknown";
+  }
+}
+console.log(relationToLuke("Darth Vader"));
+console.log(relationToLuke("Leia"));
+console.log(relationToLuke("Han"));
+
+// Convert all array items to string: Create a function that takes an array of integers and strings. Convert integers to strings and return the new array.
+
+function parseArray(array) {
+  return array.map((item) =>
+    typeof item === "number" ? item.toString() : item
+  );
+}
+
+console.log(parseArray([1, 2, "a", "b"]));
+console.log(parseArray(["abc", 123, "def", 465]));
+
+//Create a function that takes a string; we'll say that the
+//front is the first three characters of the string.If the
+//string length is less than three characters, the front is
+//whatever is there. Return a new string, which is three copies
+//of the front. in javascript
+
+function frontThree(string) {
+  let front = string.length < 3 ? string : string.substring(0, 3);
+  // let front = string.length < 3 ? string : string.slice(0, 3);
+  return front.repeat(3);
+}
+
+console.log(frontThree("Python")); // Output: "PytPytPyt"
+console.log(frontThree("Cucumber")); // Output: "CucCucCuc"
+console.log(frontThree("bioshock")); // Output: "biobiobio"
+console.log(frontThree("Hi")); // Output: "HiHiHi"
+console.log(frontThree("a")); // Output: "aaa"
