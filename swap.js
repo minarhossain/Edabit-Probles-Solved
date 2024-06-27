@@ -1289,3 +1289,59 @@ console.log(frontThree("Cucumber")); // Output: "CucCucCuc"
 console.log(frontThree("bioshock")); // Output: "biobiobio"
 console.log(frontThree("Hi")); // Output: "HiHiHi"
 console.log(frontThree("a")); // Output: "aaa"
+
+// Extract City Facts : Create a function that takes an object as an argument and returns a string with facts about the city. The city facts will need to be extracted from the object's three properties. 1. Name : 2. Population: 3. continent The string should have the following format: X has population oy Y and is sisutated in Z (where X is the city name, Y is the population name, and Z is the continent the city is situated in.)
+
+function cityFacts(obj) {
+  return `${obj.name} has population of ${obj.population} and is situated in ${obj.continent}`;
+}
+
+console.log(
+  cityFacts({
+    name: "Paris",
+    population: 2140526,
+    continent: "Europe",
+  })
+);
+
+console.log(
+  cityFacts({
+    name: "Tokyo",
+    population: 13929286,
+    continent: "Asia",
+  })
+);
+
+console.log(
+  cityFacts({
+    name: "New York",
+    population: 8623687,
+    continent: "North America",
+  })
+);
+
+function arrayValuesTypes(array) {
+  return array.map((item) => typeof item);
+}
+
+console.log(arrayValuesTypes([1, 2, "null", []]));
+console.log(arrayValuesTypes(["214", true, false, 2, 2.15, [], null]));
+
+console.log(
+  arrayValuesTypes([21.1, "float", "array", ["I am array"], null, true, 214])
+);
+
+// Is he world singular or plural? Create a function that takes in a word and determines whether or not it is plural. A plural word is one that ends in "s";
+
+function isPlural(word) {
+  return word.toLowerCase().endsWith("s");
+}
+
+console.log(isPlural("chair")); // Output: false
+console.log(isPlural("kangaroo")); // Output: true
+console.log(isPlural("feet")); // Output: false
+console.log(isPlural("leaves")); // Output: true
+
+// minimal
+const minimal = (a, b, c, d) => a || b || c || d || "Not Found";
+console.log(minimal(1, 2, 3, 4));
