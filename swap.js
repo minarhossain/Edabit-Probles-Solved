@@ -1345,3 +1345,127 @@ console.log(isPlural("leaves")); // Output: true
 // minimal
 const minimal = (a, b, c, d) => a || b || c || d || "Not Found";
 console.log(minimal(1, 2, 3, 4));
+
+// Concating First and Last Character of a String : Create a function that takes a string and returns the concatenated first and last character.
+
+function concatenate(string) {
+  if (string.length <= 1) return "";
+  const firstChar = string.charAt(0); // string[0];
+  const lastChar = string.charAt(string.length - 1); // string[string.length - 1];
+  return firstChar + lastChar;
+}
+
+console.log(concatenate("Hello")); // Output: "He"
+console.log(concatenate("World")); // Output: "Wo"
+
+// Slice of Pi :
+
+function equalSlices(totalSlices, recipients, slicesPerPerson) {
+  // Check for zero recipients (trivially true)
+  if (recipients === 0) {
+    return true;
+  }
+
+  // Calculate total slices needed for fair division
+  const neededSlices = recipients * slicesPerPerson;
+
+  // Return true if needed slices are less than or equal to total slices
+  return neededSlices <= totalSlices;
+}
+
+// Example usages
+console.log(equalSlices(11, 5, 2)); // true
+console.log(equalSlices(11, 5, 3)); // false
+console.log(equalSlices(8, 3, 2)); // true
+console.log(equalSlices(8, 3, 3)); // false
+console.log(equalSlices(24, 12, 2)); // true
+
+// Stuttering function : Write a function that stutters a word as if someone is struggling to read it. The first two letters are repeated twice with an ellipsis ... and space after each, and then the word is pronounced with a question mark ?.
+
+function stutter(word) {
+  if (word.length < 2) return "";
+  const firstTwoChar = string.slice(0, 2);
+  return `${firstTwoChar}... ${firstTwoChar}... ${word}?`;
+}
+
+console.log(stutter("Hello"));
+console.log(stutter("incredible"));
+console.log(stutter("enthusiastic"));
+console.log(stutter("outstanding"));
+
+//ES6: Destructuring Arrays IV: There is an easy way to assign to array values to the nth index by using rest parameter syntax.
+
+var [head, ...tail] = [1, 2, 3, 4];
+
+console.log(head); // outputs  1
+console.log(tail); // outputs 2
+
+// Fraction Greater Than One: Given a fraction as a string, return whether or not it is greater that 1 when evaluated.
+function greaterThanOne(string) {
+  return eval(string) > 1;
+}
+
+console.log(greaterThanOne("1/2"));
+console.log(greaterThanOne("7/4"));
+console.log(greaterThanOne("10/10"));
+
+function greaterThanOne(fractionString) {
+  // Split the fraction string into numerator and denominator
+  const parts = fractionString.split("/");
+
+  // Check for invalid input (missing slash or less than 2 parts)
+  if (parts.length !== 2) {
+    return false; // Invalid format
+  }
+
+  // Parse numerator and denominator as integers
+  const numerator = parseInt(parts[0]);
+  const denominator = parseInt(parts[1]);
+
+  // Check for division by zero
+  if (denominator === 0) {
+    return false; // Division by zero is invalid
+  }
+
+  // Compare numerator and denominator
+  return numerator > denominator;
+}
+
+// Example usages
+console.log(greaterThanOne("1/2")); // false
+console.log(greaterThanOne("7/4")); // true
+console.log(greaterThanOne("10/10")); // false
+console.log(greaterThanOne("3/1")); // true (edge case: whole number)
+console.log(greaterThanOne("invalid")); // false (invalid format)
+
+function greaterThanOne(fraction) {
+  // Split the fraction string into numerator and denominator
+  const [numerator, denominator] = fraction.split("/").map(Number);
+
+  // Compare the two values
+  return numerator / denominator > 1;
+}
+
+// Test cases
+console.log(greaterThanOne("1/2")); // ➞ false
+console.log(greaterThanOne("7/4")); // ➞ true
+console.log(greaterThanOne("10/10")); // ➞ false
+
+// Array of String to Array of Numbers : Create a function that takes as a parameter an array of "stringified" numbers and returns an array of numbers.
+
+function toNumberArray(arr) {
+  return arr.map(Number);
+}
+
+console.log(toNumberArray(["1", "2", "3", "4"])); // Output: [1, 2, 3, 4]
+console.log(toNumberArray(["91", "44"]));
+
+// Default Mood: Create a function that takes in a current mood and return a sentence in the following format "Today, I am feeling {mood} ". However, if no arguments are passed, return "Today, I am feeling neutral"
+
+function moodToody(mood) {
+  if (mood === "happy") return `Today, I am feeling {mood}`;
+  if (mood === "sad") return `Today, I am feeling {mood}`;
+  if (mood === "") return `Today, I am feeling neutral`;
+}
+
+// Destructuring Assignment:
